@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-  import { SearchResult } from './search-result.model';
+import { SearchResult } from './search-result.model';
+import { SafePipe } from '../safe.pipe';
+import { DomSanitizer } from '@angular/platform-browser';
+  
   
   
   @Component({
@@ -8,10 +11,14 @@ import { Component, OnInit, Input } from '@angular/core';
   })
   export class SearchResultComponent implements OnInit {
     @Input() result!: SearchResult;
+
+
   
-    constructor() { }
+    constructor(public sanitizer: DomSanitizer) { }
   
-    ngOnInit() {
-    }
+
+  ngOnInit() {
+   
+  }
   
   }

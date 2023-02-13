@@ -3,6 +3,7 @@ import { Inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { map } from 'rxjs/operators';
 import { SearchResult } from "./search-result.model";
+import { DomSanitizer, SafeHtml, SafeStyle, SafeScript, SafeUrl, SafeResourceUrl } from '@angular/platform-browser';
 
 export const YOUTUBE_API_KEY =
   'AIzaSyBJMirtLPwvUJD_VW7Ei5wAfcU3_4OQnQE';
@@ -28,7 +29,7 @@ export class YouTubeSearchService {
     const queryUrl = `${this.apiUrl}?${params}`;
     
     return this.http.get(queryUrl).pipe(map(response => {
-      return <any>response['items'].map(item => {
+      return <any>response['items'].map((item: any) => {
         console.log("raw item", item); // uncomment if you want to debug
         return new SearchResult(item);
       });
