@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SimpleHttpComponent } from './simple-http/simple-http.component';
 import { MoreHttpRequestsComponent } from './more-http-requests/more-http-requests.component';
@@ -14,23 +14,16 @@ import { FileSaverModule } from 'ngx-filesaver';
 
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    SimpleHttpComponent,
-    MoreHttpRequestsComponent,
-    YouTubeSearchComponent,
-    SearchResultComponent,
-    SearchBoxComponent,
-    SafePipe
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule, // <-- right here
-    FileSaverModule
-  ],
-  providers: [youTubeSearchInjectables],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        SimpleHttpComponent,
+        MoreHttpRequestsComponent,
+        YouTubeSearchComponent,
+        SearchResultComponent,
+        SearchBoxComponent,
+        SafePipe
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        FormsModule, // <-- right here
+        FileSaverModule], providers: [youTubeSearchInjectables, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
