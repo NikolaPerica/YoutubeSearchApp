@@ -1,5 +1,4 @@
 import { DomSanitizer } from '@angular/platform-browser';
-import { SafePipe } from './../safe.pipe';
 
 export class SearchResult {
     id: string;
@@ -8,8 +7,8 @@ export class SearchResult {
     thumbnailUrl: string;
     videoUrl: string;
     videoId: string;
+    downloadUrl: string;
     Url:any;    
-    safe=new SafePipe();
 
     
     constructor(obj: any){
@@ -20,10 +19,8 @@ export class SearchResult {
         this.videoUrl = obj && obj.videoUrl || `https://www.youtube.com/embed/${obj.id.videoId}`;
         this.videoId = obj&& obj.id.videoId;
         console.log("obj thumbnailUrl : ", obj.snippet.thumbnails.medium.url);
-       // this.Url = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl);
-        //this.Url=this.safe.transform(this.videoUrl);
-        this.Url=this.safe.transform(this.videoUrl);
-        console.log("safelink: ", this.Url);
+        this.downloadUrl=obj && obj.videoUrl || `https://www.ssyoutube.com/embed/${obj.id.videoId}`;
+       
        
     }
     

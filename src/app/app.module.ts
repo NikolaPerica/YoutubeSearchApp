@@ -10,6 +10,7 @@ import { SearchResultComponent } from './you-tube-search/search-result.component
 import { SearchBoxComponent } from './you-tube-search/search-box.component';
 import { youTubeSearchInjectables } from './you-tube-search/you-tube-search.injectables';
 import { SafePipe } from './safe.pipe';
+import { FileSaverModule } from 'ngx-filesaver';
 
 
 
@@ -26,7 +27,8 @@ import { SafePipe } from './safe.pipe';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule // <-- right here
+    HttpClientModule, // <-- right here
+    FileSaverModule
   ],
   providers: [youTubeSearchInjectables],
   bootstrap: [AppComponent]
