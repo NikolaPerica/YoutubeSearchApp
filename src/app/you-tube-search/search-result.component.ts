@@ -7,8 +7,9 @@ import { DomSanitizer } from '@angular/platform-browser';
   
   @Component({
     selector: 'app-search-result',
-    templateUrl: './search-result.component.html'
-  })
+    templateUrl: './search-result.component.html',
+    standalone: false
+})
   export class SearchResultComponent implements OnInit {
     @Input() result!: SearchResult;
 

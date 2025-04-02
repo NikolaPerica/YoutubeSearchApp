@@ -10,10 +10,11 @@ import { SearchResult } from './search-result.model';
 
 
 @Component({
-  selector: 'app-search-box',
-  template: `
+    selector: 'app-search-box',
+    template: `
     <input type="text" class="form-control" placeholder="Search" autofocus>
-  `
+  `,
+    standalone: false
 })
 export class SearchBoxComponent implements OnInit {
   @Output() loading: EventEmitter<boolean> = new EventEmitter<boolean>();

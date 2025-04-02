@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http';
 
 @Component({
-  selector: 'app-more-http-requests',
-  templateUrl: './more-http-requests.component.html'
+    selector: 'app-more-http-requests',
+    templateUrl: './more-http-requests.component.html',
+    standalone: false
 })
 export class MoreHttpRequestsComponent implements OnInit {
   data!: Object;
