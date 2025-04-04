@@ -18,7 +18,7 @@
     "@angular/platform-browser": "^19.2.4",
     "@angular/platform-browser-dynamic": "^19.2.4",
     "@angular/router": "^19.2.4",
-    "@angular/youtube-player": "^15.1.4",
+    "@angular/youtube-player": "^19.2.8",
     "angular-embed-video": "0.0.4",
     "file-saver": "^2.0.5",
     "ngx-filesaver": "^15.0.0",
